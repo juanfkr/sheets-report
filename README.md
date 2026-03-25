@@ -1,5 +1,5 @@
-# Sheets Report
-Geração de relatórios mensais em PDF com base em planilhas de dados CSV.
+# E-Sales Report
+Geração de relatórios mensais em PDF com base em planilhas de vendas para empresas de E-commerce.
 
 ## Objetivo
 Simular um cenário real de processamentos de dados por meio de um workflow de: scrap, análise, processamento, geração --- transformando dados brutos em relatórios úteis para tomadas de decisões.
