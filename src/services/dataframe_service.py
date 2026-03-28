@@ -1,13 +1,34 @@
-from pandas import DataFrame
+from pandas import read_csv, DataFrame
 
 class DataFrameService:
-    def __init__(self, data_frame: DataFrame):
-        self.data_frame = data_frame
+    def __init__(self):
+        self.dataframe = None
 
     # TODO: novo dataframe com dados tratados a partir do DF populacionado
     # deve incluir:
-    # OrderID | OrderDate | CustomerName | ProductID | ProductName | Category | Brand | Quantity
+    # OrderID | OrderDate | ProductID | ProductName | Category | Brand | Quantity
     # UnitPrice | Discount | Tax | ShippingCost | TotalAmount | PaymentMethod | OrderStatus |
     # City | State | Country
-    def sanitized_dataframe(self):
-        pass
+    def csv_to_dataframe(self, csv: str) -> None:
+        self.dataframe = read_csv(csv, usecols=[
+            "OrderID",
+            "OrderDate",
+            "ProductID",
+            "ProductName",
+            "Category",
+            "Brand",
+            "Quantity",
+            "UnitPrice",
+            "Discount",
+            "Tax",
+            "ShippingCost",
+            "TotalAmount",
+            "PaymentMethod",
+            "OrderStatus",
+            "City",
+            "State",
+            "Country"
+        ])
+
+    def get_dataframe(self) -> DataFrame:
+        return self.dataframe

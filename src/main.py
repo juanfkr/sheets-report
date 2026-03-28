@@ -1,7 +1,7 @@
 from pathlib import Path
 from services.pdf_generator_service import PdfGeneratorService
+from services.dataframe_service import DataFrameService
 from core.path_handler import PathHandler
-from services.csv_converter_service import CsvConverterService
 
 path_handler = PathHandler()
 
@@ -12,9 +12,9 @@ pdf_generator = PdfGeneratorService(f"{PDFS_DIRECTORY}/teste.pdf")
 
 pdf_generator.generate_pdf("teste")
 
-csv_converter = CsvConverterService()
+df = DataFrameService()
+df.csv_to_dataframe(f"{SHEETS_DIRECTORY}/Amazon-sales.csv")
 
-csv_converter.csv_to_dataframe(f"{SHEETS_DIRECTORY}/Amazon-sales.csv")
-df = csv_converter.get_dataframe()
+local_df = df.get_dataframe()
 
-print(df)
+print(local_df)
